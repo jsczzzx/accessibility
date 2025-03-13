@@ -5,22 +5,20 @@
             <h6>Check all the crypto currency lastest updates</h6>
         </div>
         <div class="sub-header">
-            <marquee behavior="scroll" onmouseover="stop()" onmouseout="start()" loop="infinite" direction="left">
-                <div class="row">
-                    <ng-container *ngFor="let row of bannerData">
-                        <div class="col-1">
-                            <div class="card">
-                                <img [src]="row.image" width="100" class="img-fluid" >
-                                <div class="card-body">
-                                    <h5 class="card-title">{{row.symbol | uppercase}} <span class="text-danger">{{row.market_cap_change_percentage_24h}}%</span></h5>
-                                    <p class="card-text">{{row.current_price | currency: currency}}</p>
-                                </div>
+            <div class="row">
+                <ng-container *ngFor="let row of bannerData">
+                    <div class="col-1">
+                        <div class="card">
+                            <img [src]="row.image" width="100" class="img-fluid" [alt]="'Logo of ' + row.name">
+                            <div class="card-body">
+                                <h5 class="card-title" >{{row.symbol | uppercase}} <span style="color: #ffcc00;">{{row.market_cap_change_percentage_24h}}%</span></h5>
+                                <p class="card-text">{{row.current_price | currency: currency}}</p>
                             </div>
                         </div>
-                    </ng-container>
+                    </div>
+                </ng-container>
 
-                </div>
-            </marquee>
+            </div>
         </div>
     </div>
 </div>
@@ -28,7 +26,7 @@
 <div class="container">
     <!-- Table -->
     <mat-form-field appearance="standard">
-        
+        <mat-label>Search</mat-label>
         <input style="color: aliceblue;" matInput (keyup)="applyFilter($event)" #input>
     </mat-form-field>
 
@@ -39,7 +37,7 @@
             <ng-container matColumnDef="symbol">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> Coin </th>
                 <td mat-cell *matCellDef="let row">
-                    <img [src]="row.image" width="50">
+                    <img [src]="row.image" width="50" [alt]="'Logo of ' + row.name">
                     <span class="mx-2"><a href="javascript:void(0)">{{row.symbol | uppercase}}</a></span>
                 </td>
             </ng-container>

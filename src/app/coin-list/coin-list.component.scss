@@ -77,9 +77,19 @@ th {
 }
 
 :host ::ng-deep tr.mat-header-row {
-    background-color: #009688;
+    background-color: #00796B;
 }
 
 :host ::ng-deep tr.mat-row {
     height: 70px;
+}
+
+a {
+    color: #ffcc00; /* High-contrast yellow */
+    text-decoration: none; /* Remove underline for a cleaner look */
+}
+
+a:hover {
+    color: #ffffff; /* Change to white on hover */
+    text-decoration: underline; /* Add underline on hover */
 }
